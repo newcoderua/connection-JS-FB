@@ -14,7 +14,17 @@
           xfbml            : true,
           version          : 'v2.10'
         });
+
         FB.AppEvents.logPageView();
+        FB.getLoginStatus((res) => {
+          if (res.status === 'connected') {
+            document.getElementById('status').innerHTML = 'we are connected';
+          } else if (res.status === 'not_authorized') {
+            document.getElementById('status').innerHTML = 'we are not logged in';
+          } else {
+            document.getElementById('status').innerHTML = 'you are not logged into Facebook';
+          }
+        });
       };
 
       (function(d, s, id){
@@ -24,7 +34,22 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+       function login() {
+         FB.login(function(res) {
+           if (res.status === 'connected') {
+             document.getElementById('status').innerHTML = 'we are connected';
+           } else if (res.status === 'not_authorized') {
+             document.getElementById('status').innerHTML = 'we are not logged in';
+           } else {
+             document.getElementById('status').innerHTML = 'you are not logged into Facebook';
+           }
+         });
+       }
+
     </script>
-    HEY
+    <div id='status'>
+      <button onclick='login()'></button>
+    </div>
   </body>
 </html>
