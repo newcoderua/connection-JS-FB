@@ -38,17 +38,20 @@
        function login() {
          FB.login(function(res) {
            if (res.status === 'connected') {
-             document.getElementById('status').innerHTML = 'we are connected';
+             document.getElementById('status1').innerHTML = 'we are connected';
            } else if (res.status === 'not_authorized') {
-             document.getElementById('status').innerHTML = 'we are not logged in';
+             document.getElementById('status1').innerHTML = 'we are not logged in';
            } else {
-             document.getElementById('status').innerHTML = 'you are not logged into Facebook';
+             document.getElementById('status1').innerHTML = 'you are not logged into Facebook';
            }
          });
        }
 
     </script>
     <div id='status'>
+      <button type="button" onclick='login()' name="button">Login</button>
+    </div>
+    <div id='status1'>
       <button type="button" onclick='login()' name="button">Login</button>
     </div>
   </body>
