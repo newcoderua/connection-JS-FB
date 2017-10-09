@@ -47,10 +47,17 @@
          });
        }
 
+       function logout() {
+         FB.logout((res) => {
+           
+         });
+       }
+
     </script>
     <div id='status'>
     </div>
     <button type="button" onclick='login()' name="button">Login</button>
+    <button type="button" onclick='logout()' name="button">Logout</button>
 
   </body>
 </html>
