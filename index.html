@@ -47,17 +47,20 @@
          });
        }
 
-       function logout() {
-         FB.logout((res) => {
-           
-         });
+       function info() {
+         FB.api(('/me', 'GET', {fields: 'last_name'}, (res) => {
+           document.getElementById('info').innerHTML = res.name;
+         }));
        }
 
     </script>
     <div id='status'>
     </div>
+    <div id="info">
+
+    </div>
     <button type="button" onclick='login()' name="button">Login</button>
-    <button type="button" onclick='logout()' name="button">Logout</button>
+    <button type="button" onclick='info()' name="button">Info</button>
 
   </body>
 </html>
