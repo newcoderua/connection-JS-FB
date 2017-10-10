@@ -49,15 +49,16 @@
 
        function info() {
          FB.api('/me', 'GET', {fields: 'first_name, last_name, name, id, picture.width(150).height(150)'}, function(response) {
-            // document.getElementById('info').innerHTML = `Hello, ${response.name}`;
-            // document.getElementById('info').append("<img src='" + response.picture.data.url + ">");
-            console.log(response);
+            document.getElementById('info').innerHTML = `Hello + ${response.name}`;
+            document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + ">";
+            // console.log(response);
           });
        }
 
     </script>
     <div id='status'> </div>
     <div id="info"> </div>
+    <div id="image"> </div>
     <button type="button" onclick='login()' name="button">Login</button>
     <button type="button" onclick='info()' name="button">Info</button>
 
