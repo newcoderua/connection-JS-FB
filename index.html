@@ -49,7 +49,7 @@
        }
 
        function info() {
-         FB.api('/me', 'GET', {fields: 'first_name, last_name, email, name, id, picture.width(150).height(150)'}, function(response) {
+         FB.api('/me', 'GET', {fields: 'first_name, last_name, user_friends, name, id, picture.width(150).height(150)'}, function(response) {
            console.log(response);
             document.getElementById('info').innerHTML = `Hello ${response.name}`;
             document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
