@@ -37,13 +37,12 @@
        } else {
          document.getElementById('status').innerHTML = 'you are not logged into Facebook';
        }
-     });
-
-     FB.api('/me', 'GET', {fields: 'first_name, last_name, name, id, picture.width(150).height(150)'}, function(response) {
+     }).then(FB.api('/me', 'GET', {fields: 'first_name, last_name, name, id, picture.width(150).height(150)'}, function(response) {
         console.log(response);
         document.getElementById('info').innerHTML = `Hello ${response.name}`;
         document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
-      });
+      }));
+
    }
 
   //  function info() {
