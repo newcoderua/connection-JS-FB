@@ -1,5 +1,5 @@
-import FB from './facebook.js';
-import LK from './linkedin.js';
+import FB from 'facebook';
+import LK from 'linkedin';
 
 const res = () => {
   console.log(FB, LK);
