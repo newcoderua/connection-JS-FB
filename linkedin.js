@@ -6,7 +6,7 @@ function OnLinkedInAuth() {
     IN.API.Profile("me").result(ShowProfileData);
   }
 
-export default function ShowProfileData(profiles) {
+function ShowProfileData(profiles) {
   var member = profiles.values[0];
   var id=member.id;
   var firstName=member.firstName;
