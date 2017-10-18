@@ -6,14 +6,14 @@ function OnLinkedInAuth() {
     IN.API.Profile("me").result(ShowProfileData);
   }
 
-function ShowProfileData(profiles) {
+export default function ShowProfileData(profiles) {
   var member = profiles.values[0];
   var id=member.id;
   var firstName=member.firstName;
   var lastName=member.lastName;
   var photo=member.pictureUrl;
   var headline=member.headline;
-  
+
 
   //use information captured above
   // console.log(profiles);
@@ -25,6 +25,3 @@ function ShowProfileData(profiles) {
     }
   }
 }
-
-
-export { ShowProfileData(profiles) };
