@@ -102,7 +102,7 @@
         console.log(profiles);
         for(var k in member) {
           if (member[k].split('://').length === 2) {
-            $('#infoLinkedin').append(`<li><img src=${member[k]}/></li>`);
+            $('#infoLinkedin').append(`<li><img src="${member[k]}"/></li>`);
           } else {
             $('#infoLinkedin').append(`<li>${member[k]}</li>`);
           }
