@@ -13,6 +13,7 @@ function ShowProfileData(profiles) {
   var lastName=member.lastName;
   var photo=member.pictureUrl;
   var headline=member.headline;
+  
 
   //use information captured above
   // console.log(profiles);
@@ -24,3 +25,6 @@ function ShowProfileData(profiles) {
     }
   }
 }
+
+
+export { ShowProfileData(profiles) };

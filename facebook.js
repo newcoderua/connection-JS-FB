@@ -46,3 +46,6 @@
         document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
       });
    }
+
+
+export { info };
