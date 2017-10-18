@@ -3,73 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-
-      api_key: 86a4j209yzcqxc
-
-      scope: r_network,r_emailaddress,r_fullprofile,r_basicprofile,r_contactinfo
-
-    </script>
+      <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+        api_key: 86a4j209yzcqxc
+        onLoad: OnLinkedInFrameworkLoad
+        authorize: true
+      </script>
   </head>
   <body>
-    <script>
-    //init
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '151288025473527',
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v2.10'
-        });
-
-        FB.AppEvents.logPageView();
-        FB.getLoginStatus((res) => {
-          if (res.status === 'connected') {
-            document.getElementById('status').innerHTML = 'we are connected';
-          } else if (res.status === 'not_authorized') {
-            document.getElementById('status').innerHTML = 'we are not logged in';
-          } else {
-            document.getElementById('status').innerHTML = 'you are not logged into Facebook';
-          }
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-
-       function login() {
-         FB.login(function(res) {
-          //  console.log(res);
-           if (res.status === 'connected') {
-             document.getElementById('status').innerHTML = 'we are connected';
-           } else if (res.status === 'not_authorized') {
-             document.getElementById('status').innerHTML = 'we are not logged in';
-           } else {
-             document.getElementById('status').innerHTML = 'you are not logged into Facebook';
-           }
-         });
-       }
-
-       function info() {
-         FB.api('/me', 'GET', {fields: 'first_name, last_name, name, id, picture.width(150).height(150)'}, function(response) {
-            document.getElementById('info').innerHTML = `Hello ${response.name}`;
-            document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
-          });
-
-       }
-
-    </script>
     <div id='status'> </div>
     <div id="info"> </div>
     <div id="image"> </div>
     <button type="button" onclick='login()' name="button">Login</button>
     <button type="button" onclick='info()' name="button">Info</button>
     <script type="IN/Login"></script>
+    <script type="text/javascript">
+      function OnLinkedInFrameworkLoad() {
+          IN.Event.on(IN, "auth", OnLinkedInAuth);
+        }
+
+      function OnLinkedInAuth() {
+          IN.API.Profile("me").result(ShowProfileData);
+        }
+
+      function ShowProfileData(profiles) {
+        var member = profiles.values[0];
+        var id=member.id;
+        var firstName=member.firstName;
+        var lastName=member.lastName;
+        var photo=member.pictureUrl;
+        var headline=member.headline;
+
+        //use information captured above
+        console.log(firstName);
+      }
+    </script>
 
   </body>
 </html>
