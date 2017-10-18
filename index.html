@@ -101,7 +101,11 @@
         //use information captured above
         console.log(profiles);
         for(var k in member) {
-          $('#infoLinkedin').append(`<li>${member[k]}</li>`);
+          if (member[k].split('://').length === 2) {
+            $('#infoLinkedin').append(`<li><img src=${member[k]}/></li>`);
+          } else {
+            $('#infoLinkedin').append(`<li>${member[k]}</li>`);
+          }
         }
       }
     </script>
