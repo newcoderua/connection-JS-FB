@@ -45,5 +45,4 @@
         document.getElementById('info').innerHTML = `Hello ${response.name}`;
         document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
       });
-
    }
