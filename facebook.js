@@ -1,4 +1,3 @@
-<script>
 //init
   window.fbAsyncInit = function() {
     FB.init({
@@ -11,7 +10,7 @@
     FB.AppEvents.logPageView();
     FB.getLoginStatus((res) => {
       if (res.status === 'connected') {
-        document.getElementById('status').innerHTML = 'we are connected';
+        document.getElementById('status').innerHTML = 'connected ✅';
       } else if (res.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'we are not logged in';
       } else {
@@ -48,5 +47,3 @@
       });
 
    }
-
-</script>
