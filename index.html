@@ -25,7 +25,7 @@
         FB.AppEvents.logPageView();
         FB.getLoginStatus((res) => {
           if (res.status === 'connected') {
-            document.getElementById('status').innerHTML = 'we are connected';
+            document.getElementById('status').innerHTML = 'connected ✅';
           } else if (res.status === 'not_authorized') {
             document.getElementById('status').innerHTML = 'we are not logged in';
           } else {
@@ -70,10 +70,10 @@
         <div id="image"> </div>
         <button type="button" onclick='login()' name="button">Login</button>
         <button type="button" onclick='info()' name="button">Info</button>
-      <div>
+      </div>
       <div class='linekdin'>
         <script type="IN/Login"></script>
-        <div id="infoLinkedin"> </div>
+        <ul id="infoLinkedin"> </ul>
       </div>
     </div>
 
@@ -98,6 +98,7 @@
 
         //use information captured above
         console.log(profiles);
+        document.getElementById('infoLinkedin')
 
       }
     </script>
