@@ -15,7 +15,7 @@ function ShowProfileData(profiles) {
   var headline=member.headline;
 
   //use information captured above
-  console.log(profiles);
+  // console.log(profiles);
   for(var k in member) {
     if (member[k].split('://').length === 2) {
       $('#infoLinkedin').append(`<li><img src="${member[k]}"/></li>`);
