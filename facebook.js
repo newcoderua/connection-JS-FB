@@ -30,19 +30,19 @@
    function login() {
      FB.login(function(res) {
       //  console.log(res);
-       if (res.status === 'connected') {
-         document.getElementById('status').innerHTML = 'we are connected';
-       } else if (res.status === 'not_authorized') {
-         document.getElementById('status').innerHTML = 'we are not logged in';
-       } else {
-         document.getElementById('status').innerHTML = 'you are not logged into Facebook';
-       }
+      //  if (res.status === 'connected') {
+      //    document.getElementById('status').innerHTML = 'we are connected';
+      //  } else if (res.status === 'not_authorized') {
+      //    document.getElementById('status').innerHTML = 'we are not logged in';
+      //  } else {
+      //    document.getElementById('status').innerHTML = 'you are not logged into Facebook';
+      //  }
      }).then(() =>  {
         FB.api('/me', 'GET', {fields: 'first_name, last_name, name, id, picture.width(150).height(150)'}, function(response) {
         console.log(response);
         document.getElementById('info').innerHTML = `Hello ${response.name}`;
         document.getElementById('image').innerHTML = "<img src='" + response.picture.data.url + "'>";
-      }})
+      })}
 
       );
 
