@@ -1,0 +1,9 @@
+body {
+  background-color: lightyellow;
+}
+
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+}
