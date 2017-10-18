@@ -11,23 +11,27 @@
         authorize: true
       </script>
   </head>
+
   <body>
     <!-- FACEBOOK API -->
     <script type='text/javascript' src='./facebook.js'> </script>
+
     <div class="user-info">
       <div class='facebook'>
         <div id='status'> </div>
         <div id="info"> </div>
         <div id="image"> </div>
-        <button type="button" onclick='login()' name="button">Login</button>
-        <button type="button" onclick='info()' name="button">Info</button>
+        <button type="button" onclick='login()' name="button">Login Via Facebook</button>
+        <!-- <button type="button" onclick='info()' name="button">Info</button> -->
       </div>
       <div class='linkedin'>
         <script type="IN/Login"></script>
         <ul id="infoLinkedin"> </ul>
       </div>
     </div>
+
     <!-- LINKEDIN API -->
     <script type="text/javascript" src='./linkedin.js'> </script>
   </body>
+
 </html>
